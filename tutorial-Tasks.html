@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Tutorial: Tasks - CLI Utils</title>
+    
+    <meta name="description" content="Utility methods for building Node.js CLI's" />
+    
+        <meta name="keywords" content="utils, cli, task, tasks" />
+        <meta name="keyword" content="utils, cli, task, tasks" />
+    
+    
+    
+    <meta property="og:title" content="CLIJS Utils"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:site_name" content="cli-utils"/>
+    <meta property="og:url" content="https://github.com/keg-hub/keg-cli/tree/develop/repos/cli-utils"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/keg-hub/keg-cli/tree/develop/repos/cli-utils" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Tutorials</h3><ul><li><a href="tutorial-Tasks.html">Tasks</a></li></ul><h3>Modules</h3><ul><li><a href="module-CLI.html">CLI</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-CLI.html#~runTask">runTask</a></li><li data-type='method' style='display: none;'><a href="module-CLI.html#~setAppRoot">setAppRoot</a></li><li data-type='method' style='display: none;'><a href="module-CLI.html#~showHelp">showHelp</a></li></ul></li><li></li><li></li><li><a href="module-Commands.html">Commands</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Commands.html#.docker">docker</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.dockerCompose">dockerCompose</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.node">node</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.npm">npm</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.npx">npx</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.yarn">yarn</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~containerExec">containerExec</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~dockerCmd">dockerCmd</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~dockerExec">dockerExec</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~inDocker">inDocker</a></li></ul></li><li></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-Error.html">Error</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Error.html#~throwErr">throwErr</a></li><li data-type='method' style='display: none;'><a href="module-Error.html#~throwExitError">throwExitError</a></li><li data-type='method' style='display: none;'><a href="module-Error.html#~throwNoTask">throwNoTask</a></li></ul></li><li></li><li><a href="module-FS.html">FS</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-FS.html#~buildFoundArray">buildFoundArray</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyFile">copyFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyFileSync">copyFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyStream">copyStream</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copySync">copySync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~emptyDirSync">emptyDirSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~ensureDirSync">ensureDirSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFiles">getFiles</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFilesSync">getFilesSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolderContent">getFolderContent</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolderContentSync">getFolderContentSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolders">getFolders</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFoldersSync">getFoldersSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getPackageRoot">getPackageRoot</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~limboify">limboify</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~mkDir">mkDir</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~movePath">movePath</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~pathExists">pathExists</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~pathExistsSync">pathExistsSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readDir">readDir</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readFile">readFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readFileSync">readFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~removeFile">removeFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~removeFileSync">removeFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~requireFile">requireFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~stat">stat</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~writeFile">writeFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~writeFileSync">writeFileSync</a></li></ul></li><li></li><li><a href="module-Global-Config.html">Global-Config</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~addGlobalOptions">addGlobalOptions</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getDefaultEnv">getDefaultEnv</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getEditorCmd">getEditorCmd</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getGlobalOptions">getGlobalOptions</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getKegGlobalConfig">getKegGlobalConfig</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getKegSetting">getKegSetting</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getPathFromConfig">getPathFromConfig</a></li></ul></li><li></li><li></li><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addFlag">addFlag</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addParam">addParam</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addToProcess">addToProcess</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addValues">addValues</a></li></ul></li><li><a href="module-Network.html">Network</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Network.html#~getAddresses">getAddresses</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getHostIP">getHostIP</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPrivateIPs">getPrivateIPs</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPublicIP">getPublicIP</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPublicIPsForUrl">getPublicIPsForUrl</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~ipIsInRange">ipIsInRange</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~isPrivateIP">isPrivateIP</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Process.html">Process</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Process.html#~addToProcess">addToProcess</a></li><li data-type='method' style='display: none;'><a href="module-Process.html#~getEventExitCode">getEventExitCode</a></li><li data-type='method' style='display: none;'><a href="module-Process.html#~onProcessExit">onProcessExit</a></li></ul></li><li></li><li><a href="module-Tap.html">Tap</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapConfig">getTapConfig</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapPackage">getTapPackage</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapPath">getTapPath</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapRoot">getTapRoot</a></li></ul></li><li></li><li></li><li><a href="module-Task.html">Task</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Task.html#~buildTaskData">buildTaskData</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~executeTask">executeTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~findTask">findTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~getTaskDefinitions">getTaskDefinitions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~hasHelpArg">hasHelpArg</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~parseTaskArgs">parseTaskArgs</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~registerTasks">registerTasks</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~runInternalTask">runInternalTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~setSharedOptions">setSharedOptions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~setTaskFolder">setTaskFolder</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~sharedOptions">sharedOptions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~validateTask">validateTask</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><h3>Classes</h3><ul><li><a href="Log.html">Log</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Log.html#clear">clear</a></li><li data-type='method' style='display: none;'><a href="Log.html#color">color</a></li><li data-type='method' style='display: none;'><a href="Log.html#empty">empty</a></li><li data-type='method' style='display: none;'><a href="Log.html#header">header</a></li><li data-type='method' style='display: none;'><a href="Log.html#highlight">highlight</a></li><li data-type='method' style='display: none;'><a href="Log.html#label">label</a></li><li data-type='method' style='display: none;'><a href="Log.html#pair">pair</a></li><li data-type='method' style='display: none;'><a href="Log.html#print">print</a></li><li data-type='method' style='display: none;'><a href="Log.html#removeTag">removeTag</a></li><li data-type='method' style='display: none;'><a href="Log.html#setColors">setColors</a></li><li data-type='method' style='display: none;'><a href="Log.html#setTag">setTag</a></li><li data-type='method' style='display: none;'><a href="Log.html#spacedMsg">spacedMsg</a></li><li data-type='method' style='display: none;'><a href="Log.html#spaceMsg">spaceMsg</a></li><li data-type='method' style='display: none;'><a href="Log.html#stderr">stderr</a></li><li data-type='method' style='display: none;'><a href="Log.html#stdout">stdout</a></li><li data-type='method' style='display: none;'><a href="Log.html#subHeader">subHeader</a></li><li data-type='method' style='display: none;'><a href="Log.html#table">table</a></li><li data-type='method' style='display: none;'><a href="Log.html#toggleTag">toggleTag</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Tutorial: Tasks</h1>
+    
+
+    <section>
+
+<header>
+    
+
+    <h2>Tasks</h2>
+</header>
+
+<article>
+    <h1>Cli Tasks</h1>
+<ul>
+<li>Tasks are built by creating task definitions</li>
+</ul>
+<h3>Task Definition</h3>
+<ul>
+<li>A task definition should contain the following keys<pre class="prettyprint source lang-js"><code>{
+  alias: Array,
+  name: String, **Required**
+  options: Object,
+  example: String,
+  action: Function, **Required**
+  description: String, **Required**
+  tasks: Object,
+  // Other properties are allowed, but not used internally
+}
+</code></pre>
+</li>
+</ul>
+<p><strong>Property Descriptions</strong></p>
+<ul>
+<li><code>name</code> - The name of the command. Each must be unique the parent task <strong>Required</strong></li>
+<li><code>alias</code> - Alternate names of the <code>name</code> key, which can be used in-lue of the <code>name</code> key</li>
+<li><code>description</code> - Long form description of the task <strong>Required</strong>
+<ul>
+<li>Is printed out to the terminal</li>
+<li>Some helpers are included to provided better formatting</li>
+</ul>
+</li>
+<li><code>options</code> - Allowed options of the task
+<ul>
+<li>See options model below for more information</li>
+</ul>
+</li>
+<li><code>example</code> - Example text showing how to call the task from the command line</li>
+<li><code>action</code> - Function to run for the task <strong>Required</strong>
+<ul>
+<li>Gets passed an <code>arguments</code> object, with the following keys
+<ul>
+<li><code>globalConfig</code> - See the <code>Global Config Object</code> for more information</li>
+<li><code>command</code> - Name of the current command being run</li>
+<li><code>options</code> - Arguments passed from the command line</li>
+<li><code>params</code> - Options converted into key/value pairs
+<ul>
+<li>Sets defaults where needed</li>
+<li>Ensures all required options exist
+<ul>
+<li>If missing, an error is throw before the action is called</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>tasks</code> - All loaded <code>tasks</code> of the <code>keg-cli</code></li>
+<li><code>task</code> - the <code>task</code> object of the <code>action</code> being run</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>tasks</code> - An object containing <strong>sub-task definitions</strong> of this task
+<ul>
+<li>Called by passing the name of the <strong>sub-task</strong> as the first argument to the <strong>parent task</strong> form the command line</li>
+<li>Example of calling from the command line =&gt; <code>yarn task start app &lt;options&gt;</code></li>
+<li>Sub-tasks definitions can also has their own <strong>sub-tasks</strong>.</li>
+<li>The process is recursive and can go as deep as needed, using the <code>tasks</code> property of the <strong>task definition</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>Task Definitions Example</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+  start: {
+    name: 'start',
+    alias: ['begin', 'st'],
+    example: 'yarn task start &lt;options>',
+    description: 'When called this task will start the ...',
+    actions: (argsObj) => { /*...code to start */ },
+    tasks: {
+      app: {
+        name: 'app',
+        // ...task definition properties
+      }
+    }
+    options: {
+      foo: {
+        default: 'bar',
+        alias: [ 'zoo' ],
+        description: 'I am foo bar',
+      },
+      baz: {
+        type: 'num',
+        require: true,
+        description: 'The baz with bas',
+      },
+    }
+  },
+  stop: {
+    // ...task definition properties
+  }
+}
+</code></pre>
+<h3>Option Model</h3>
+<ul>
+<li>A task option should match the Task Option Model with the following keys</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>{
+  name: String, **Required**
+  alias: Array,
+  allowed: Array,
+  type: String,
+  required: Boolean,
+  enforced: String,
+  description: String,
+  default: * - ( Must match the type property ),
+}
+</code></pre>
+<p><strong>Property Descriptions</strong></p>
+<ul>
+<li><code>name</code> - <strong>Required</strong> Name of the option. Key in the <code>params</code> object passed to a <code>task</code> action</li>
+<li><code>alias</code> - Alternate names of the <code>name</code> key, which can be used in-lue of the <code>name</code> key</li>
+<li><code>allowed</code> - List of allowed values of the option. Will throw if value is not one of these options</li>
+<li><code>required</code> - Makes the option required when calling the task. Will throw if the option does not exist</li>
+<li><code>enforced</code> - States the <code>action</code> requires the argument, but will not throw if it doesn't exist</li>
+<li><code>description</code> - Describes the option</li>
+<li><code>default</code> - Value used when no value is passed for the option</li>
+<li><code>type</code> - Type the value of the option should be coerced into when parsed</li>
+</ul>
+<p><strong>Type Property</strong></p>
+<ul>
+<li>It possiable to coerced the passed in value for an option into a specific <code>type</code></li>
+<li>This is done by setting <code>type</code> property of the <code>option model</code> to a specific type
+<ul>
+<li>When not set, the default type is <code>string</code>, which is the type of the command line argument</li>
+</ul>
+</li>
+<li>The <code>type</code> property must be one of
+<ul>
+<li><code>string</code> <strong>default</strong>
+<ul>
+<li>The value for an option is left as is</li>
+<li><strong>This is the default type, then the <code>type</code> property is not set</strong></li>
+<li><strong>Examples</strong>
+<ul>
+<li><code>task someTask --option value</code> =&gt; The value of <code>option</code> would be <code>value</code> as a string</li>
+<li><code>task someTask --option \&quot;[\&quot;foo\&quot;]\&quot;</code> =&gt; The value of <code>option</code> would be <code>[\&quot;foo\&quot;]</code> as a string</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>array</code> | <code>arr</code>
+<ul>
+<li>The value is converted into an array when it matches one of the following
+<ul>
+<li>A valid JSON string =&gt; <code>&quot;[ &quot;one&quot;, 2 ]&quot;</code></li>
+<li>A list of values seperated by a comma =&gt; &quot;foo,bar&quot;</li>
+</ul>
+</li>
+<li>If the <code>type</code> is set to <code>array</code>, and the value can not be parsed, it will be added as the first item in an array
+<ul>
+<li>If the value is <code>my-value</code>, and the <code>type</code> is <code>array</code>, it will be converted to <code>[&quot;my-value&quot;]</code></li>
+</ul>
+</li>
+<li><strong>Examples</strong>
+<ul>
+<li><code>task someTask --option \&quot;[\&quot;foo\&quot;,\&quot;bar\&quot;]\&quot;</code> =&gt; The value of <code>option</code> would be <code>[&quot;foo&quot;]</code> as an array</li>
+<li><code>task someTask --option foo,bar</code> =&gt; The value of <code>option</code> would be <code>[&quot;foo&quot;, &quot;bar&quot;]</code> as an array</li>
+<li><code>task someTask --option foo</code> =&gt; The value of <code>option</code> would be <code>[&quot;foo&quot;]</code> as an array</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>object</code> | <code>obj</code>
+<ul>
+<li>The value is converted into a object when it matches one of the following
+<ul>
+<li>A valid JSON string =&gt; <code>&quot;{ &quot;key&quot;: &quot;value&quot; }&quot; === { key: &quot;value&quot; }</code></li>
+<li>A key value pairs using a colon and separated by a comma =&gt; <code>&quot;foo:1,bar:2&quot; === { foo: '1', bar: '2' }</code></li>
+</ul>
+</li>
+<li><strong>Examples</strong>
+<ul>
+<li><code>task someTask --option \&quot;{\&quot;foo\&quot;:1}\&quot;</code> =&gt; The value of <code>option</code> would be <code>{foo: 1}</code> as an object</li>
+<li><code>task someTask --option foo:1</code> =&gt; The value of <code>option</code> would be <code>{foo: &quot;1&quot;}</code> as an object <strong>with string values</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>number</code> | <code>num</code>
+<ul>
+<li>The value is converted into a number when it matches one of the following
+<ul>
+<li>A valid number is passed =&gt; <code>42 === 42</code></li>
+<li>A valid number is passed within a string =&gt; <code>4-some-text-2 === 42</code></li>
+</ul>
+</li>
+<li><strong>Examples</strong>
+<ul>
+<li><code>task someTask --option 24</code> =&gt; The value of <code>option</code> would be <code>24</code> as a number</li>
+<li><code>task someTask --option 2-text-4</code> =&gt; The value of <code>option</code> would be <code>24</code> as a number</li>
+<li><code>task someTask --option two-four</code> =&gt; The value of <code>option</code> would be <code>undefined</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>boolean</code> | <code>bool</code>
+<ul>
+<li>The value is converted into a boolean when it matches one of the following
+<ul>
+<li>One of <code>true</code> | <code>t</code> | <code>yes</code> | <code>y</code> === <code>true</code></li>
+<li>One of <code>false</code> | <code>f</code> | <code>no</code> | <code>n</code> === <code>false</code></li>
+</ul>
+</li>
+<li><strong>Examples</strong>
+<ul>
+<li><code>task  someTask --option t</code> =&gt; The value of <code>option</code> would be <code>true</code></li>
+<li><code>task  someTask option=yes </code> =&gt; The value of <code>option</code> would be <code>true</code></li>
+<li><code>task  someTask --option f</code> =&gt; The value of <code>option</code> would be <code>false</code></li>
+<li><code>task  someTask option=no </code> =&gt; The value of <code>option</code> would be <code>false</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</article>
+
+</section>
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Mar 29 2023 10:03:12 GMT-0700 (Mountain Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+    <link type="text/css" rel="stylesheet" href="styles/docs.css">
+    
+    <script src="scripts/docs.js"></script>
+    
+</body>
+</html>

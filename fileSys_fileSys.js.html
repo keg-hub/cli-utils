@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>fileSys/fileSys.js - CLI Utils</title>
+    
+    <meta name="description" content="Utility methods for building Node.js CLI's" />
+    
+        <meta name="keywords" content="utils, cli, task, tasks" />
+        <meta name="keyword" content="utils, cli, task, tasks" />
+    
+    
+    
+    <meta property="og:title" content="CLIJS Utils"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:site_name" content="cli-utils"/>
+    <meta property="og:url" content="https://github.com/keg-hub/keg-cli/tree/develop/repos/cli-utils"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/keg-hub/keg-cli/tree/develop/repos/cli-utils" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Tutorials</h3><ul><li><a href="tutorial-Tasks.html">Tasks</a></li></ul><h3>Modules</h3><ul><li><a href="module-CLI.html">CLI</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-CLI.html#~runTask">runTask</a></li><li data-type='method' style='display: none;'><a href="module-CLI.html#~setAppRoot">setAppRoot</a></li><li data-type='method' style='display: none;'><a href="module-CLI.html#~showHelp">showHelp</a></li></ul></li><li></li><li></li><li><a href="module-Commands.html">Commands</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Commands.html#.docker">docker</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.dockerCompose">dockerCompose</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.node">node</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.npm">npm</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.npx">npx</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.yarn">yarn</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~containerExec">containerExec</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~dockerCmd">dockerCmd</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~dockerExec">dockerExec</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~inDocker">inDocker</a></li></ul></li><li></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-Error.html">Error</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Error.html#~throwErr">throwErr</a></li><li data-type='method' style='display: none;'><a href="module-Error.html#~throwExitError">throwExitError</a></li><li data-type='method' style='display: none;'><a href="module-Error.html#~throwNoTask">throwNoTask</a></li></ul></li><li></li><li><a href="module-FS.html">FS</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-FS.html#~buildFoundArray">buildFoundArray</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyFile">copyFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyFileSync">copyFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyStream">copyStream</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copySync">copySync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~emptyDirSync">emptyDirSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~ensureDirSync">ensureDirSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFiles">getFiles</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFilesSync">getFilesSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolderContent">getFolderContent</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolderContentSync">getFolderContentSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolders">getFolders</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFoldersSync">getFoldersSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getPackageRoot">getPackageRoot</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~limboify">limboify</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~mkDir">mkDir</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~movePath">movePath</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~pathExists">pathExists</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~pathExistsSync">pathExistsSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readDir">readDir</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readFile">readFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readFileSync">readFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~removeFile">removeFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~removeFileSync">removeFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~requireFile">requireFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~stat">stat</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~writeFile">writeFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~writeFileSync">writeFileSync</a></li></ul></li><li></li><li><a href="module-Global-Config.html">Global-Config</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~addGlobalOptions">addGlobalOptions</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getDefaultEnv">getDefaultEnv</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getEditorCmd">getEditorCmd</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getGlobalOptions">getGlobalOptions</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getKegGlobalConfig">getKegGlobalConfig</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getKegSetting">getKegSetting</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getPathFromConfig">getPathFromConfig</a></li></ul></li><li></li><li></li><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addFlag">addFlag</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addParam">addParam</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addToProcess">addToProcess</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addValues">addValues</a></li></ul></li><li><a href="module-Network.html">Network</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Network.html#~getAddresses">getAddresses</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getHostIP">getHostIP</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPrivateIPs">getPrivateIPs</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPublicIP">getPublicIP</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPublicIPsForUrl">getPublicIPsForUrl</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~ipIsInRange">ipIsInRange</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~isPrivateIP">isPrivateIP</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Process.html">Process</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Process.html#~addToProcess">addToProcess</a></li><li data-type='method' style='display: none;'><a href="module-Process.html#~getEventExitCode">getEventExitCode</a></li><li data-type='method' style='display: none;'><a href="module-Process.html#~onProcessExit">onProcessExit</a></li></ul></li><li></li><li><a href="module-Tap.html">Tap</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapConfig">getTapConfig</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapPackage">getTapPackage</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapPath">getTapPath</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapRoot">getTapRoot</a></li></ul></li><li></li><li></li><li><a href="module-Task.html">Task</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Task.html#~buildTaskData">buildTaskData</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~executeTask">executeTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~findTask">findTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~getTaskDefinitions">getTaskDefinitions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~hasHelpArg">hasHelpArg</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~parseTaskArgs">parseTaskArgs</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~registerTasks">registerTasks</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~runInternalTask">runInternalTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~setSharedOptions">setSharedOptions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~setTaskFolder">setTaskFolder</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~sharedOptions">sharedOptions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~validateTask">validateTask</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><h3>Classes</h3><ul><li><a href="Log.html">Log</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Log.html#clear">clear</a></li><li data-type='method' style='display: none;'><a href="Log.html#color">color</a></li><li data-type='method' style='display: none;'><a href="Log.html#empty">empty</a></li><li data-type='method' style='display: none;'><a href="Log.html#header">header</a></li><li data-type='method' style='display: none;'><a href="Log.html#highlight">highlight</a></li><li data-type='method' style='display: none;'><a href="Log.html#label">label</a></li><li data-type='method' style='display: none;'><a href="Log.html#pair">pair</a></li><li data-type='method' style='display: none;'><a href="Log.html#print">print</a></li><li data-type='method' style='display: none;'><a href="Log.html#removeTag">removeTag</a></li><li data-type='method' style='display: none;'><a href="Log.html#setColors">setColors</a></li><li data-type='method' style='display: none;'><a href="Log.html#setTag">setTag</a></li><li data-type='method' style='display: none;'><a href="Log.html#spacedMsg">spacedMsg</a></li><li data-type='method' style='display: none;'><a href="Log.html#spaceMsg">spaceMsg</a></li><li data-type='method' style='display: none;'><a href="Log.html#stderr">stderr</a></li><li data-type='method' style='display: none;'><a href="Log.html#stdout">stdout</a></li><li data-type='method' style='display: none;'><a href="Log.html#subHeader">subHeader</a></li><li data-type='method' style='display: none;'><a href="Log.html#table">table</a></li><li data-type='method' style='display: none;'><a href="Log.html#toggleTag">toggleTag</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">fileSys/fileSys.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module FS */
+
+const fs = require('fs-extra')
+const path = require('path')
+const { checkCall, limbo, isFunc } = require('@keg-hub/jsutils')
+const { throwError } = require('../error')
+
+/**
+ * Default files that are ignored when searching a directory tree of the filesystem
+ * @private
+ * @Array
+ */
+const defaultFileExclude = [
+  `.DS_Store`,
+  `.gitignore`,
+  `.gitkeep`,
+]
+
+/**
+ * Wraps a method with a callback into a promise
+ * @function
+ * @param {*} cb - method to wrap in a promise
+ * @param {*} args - Arguments to pass to the callback method
+ *
+ * @returns {Promise|*} - Success response of fs.rename method
+ */
+const limboify = (cb, ...args) => {
+  return limbo(
+    new Promise((res, rej) =>
+      cb(...args, (err, success) => (err ? rej(err) : res(success || true)))
+    )
+  )
+}
+
+/**
+ * Copy a file from one location to another
+ * @function
+ * @param {*} oldPath - Copy from location
+ * @param {*} newPath - Copy to location
+ *
+ * @returns {Promise|*} - Success response of fs.rename method
+ */
+const movePath = (oldPath, newPath) => {
+  return limboify(fs.rename, oldPath, newPath)
+}
+
+/**
+ * Makes a directory at the passed in folderPath
+ * @function
+ * @param {string} folderPath - Folder path to create
+ *
+ * @returns {Promise|boolean} - Success creating the directory
+ */
+const mkDir = filePath => {
+  return limboify(fs.mkdir, filePath, { recursive: true })
+}
+
+/**
+ * Writes a file to the local HHD
+ * @function
+ * @param {string} filePath - Path to where the file should be written
+ * @param {*} data - Contents to be written to the file
+ * @param {string} [format=utf8] - Format of the file
+ *
+ * @returns {Promise|boolean} - True if the file was written successfully
+ */
+const writeFile = (filePath, data, format = 'utf8') => {
+  return limboify(fs.writeFile, filePath, data, format)
+}
+
+/**
+ * Writes a file to the local HHD synchronously
+ * @function
+ * @param {string} filePath - Path to where the file should be written
+ * @param {*} data - Contents to be written to the file
+ * @param {string} [format=utf8] - Format of the file
+ *
+ * @returns {Promise|boolean} - True if the file was written successfully
+ */
+const writeFileSync = (filePath, data, format = 'utf8') => {
+  return fs.writeFileSync(filePath, data, format)
+}
+
+/**
+ * Reads the contents of a directory
+ * @function
+ * @param {string} dirPath - Path to the directory to be read
+ *
+ * @returns {Promise|*} - Contents of the directory
+ */
+const readDir = dirPath => {
+  return limboify(fs.readdir, dirPath)
+}
+
+/**
+ * Checks if a path exists using fs.stat wrapped in a promise
+ * @function
+ * @param {string} path - Path to Check
+ *
+ * @returns {Promise|boolean} - True if the file exists
+ */
+const stat = path => {
+  return limboify(fs.stat, path)
+}
+
+/**
+ * Gets the content of a folder based on passed in options
+ * @function
+ * @param {string} fromPath - Path to get the content from
+ * @param {Array} allFound  - Past found file paths
+ * @param {string} file - File path to check if should be added to allFound array
+ * @param {boolean} opts.full - Should return the full path
+ * @param {string} opts.type - Type of content to return (folder || file)
+ * @param {Array} opts.exclude - File or folder to exclude
+ * @param {Array} opts.include - File or folder to include
+ *
+ * @returns {Array} - Array of found file paths
+ */
+const buildFoundArray = ({
+  allFound,
+  recurCall,
+  file,
+  fromPath,
+  opts = {},
+}) => {
+  const { exclude = defaultFileExclude, full, include = [], recursive, type } = opts
+
+  // Filter out any folder matching the exclude
+  if (!file || exclude.indexOf(file) !== -1) return allFound
+
+  // Get the full path of the file or folder
+  const fullPath = path.join(fromPath, file)
+
+  // Check if we should use the full path or relative
+  const found = full ? fullPath : file
+
+  // Check if its a directory
+  const isDir = fs.statSync(fullPath).isDirectory()
+
+  // Check if found should be added to the array based on the passed in arguments
+  // Check the for type match or no type
+  ;(!type || (type === 'folder' &amp;&amp; isDir) || (type !== 'folder' &amp;&amp; !isDir)) &amp;&amp;
+    (!include.length || include.indexOf(file) !== -1) &amp;&amp;
+    allFound.push(found)
+
+  return !isDir || !recursive || !isFunc(recurCall)
+    ? allFound
+    : recurCall(fullPath, opts, allFound)
+}
+
+/**
+ * Gets the content of a folder based on passed in options
+ * @function
+ * @param {string} fromPath - Path to get the content from
+ * @param {Object} [opts={}] - Options for filtering the found content
+ * @param {boolean} opts.full - Should return the full path
+ * @param {string} opts.type - Type of content to return (folder || file)
+ * @param {Array} opts.exclude - File or folder to exclude
+ * @param {Array} opts.include - File or folder to include
+ *
+ * @returns {Promise|Array} - Array of found items
+ */
+const getFolderContent = async (fromPath, opts = {}, foundPaths = []) => {
+  const [ err, allFiles ] = await readDir(fromPath)
+  err &amp;&amp; throwError(err)
+
+  return allFiles.reduce(async (toResolve, file) => {
+    const allFound = await toResolve
+
+    return buildFoundArray({
+      opts,
+      file,
+      fromPath,
+      allFound,
+      recurCall: getFolderContent,
+    })
+  }, Promise.resolve(foundPaths))
+}
+
+/**
+ * Gets the content of a folder based on passed in options synchronously
+ * @function
+ * @param {string} fromPath - Path to get the content from
+ * @param {Object} [opts={}] - Options for filtering the found content
+ * @param {boolean} opts.full - Should return the full path
+ * @param {string} opts.type - Type of content to return (folder || file)
+ * @param {Array} opts.exclude - File or folder to exclude
+ * @param {Array} opts.include - File or folder to include
+ *
+ * @returns {Promise|Array} - Array of found items
+ */
+const getFolderContentSync = (fromPath, opts = {}, foundPaths = []) => {
+  return fs.readdirSync(fromPath).reduce(
+    (allFound, file) =>
+      buildFoundArray({
+        opts,
+        file,
+        fromPath,
+        allFound,
+        recurCall: getFolderContentSync,
+      }),
+    foundPaths
+  )
+}
+
+/**
+ * Gets all files in a directory path
+ * @function
+ * @param {string} fromPath - Path to find the folders in
+ * @param {Object} [opts={}] - Options for filtering the found content
+ * @param {boolean} opts.full - Should return the full path
+ * @param {string} opts.type - Type of content to return (folder || file)
+ * @param {Array} opts.exclude - File or folder to exclude
+ * @param {Array} opts.include - File or folder to include
+ *
+ * @returns {Array} - All files found in the path
+ */
+const getFiles = (fromPath, opts) => {
+  return getFolderContent(fromPath, { ...opts, type: 'file' })
+}
+
+/**
+ * Gets all folders in a directory path
+ * @function
+ * @param {string} fromPath - Path to find the folders in
+ * @param {Object} [opts={}] - Options for filtering the found content
+ * @param {boolean} opts.full - Should return the full path
+ * @param {string} opts.type - Type of content to return (folder || file)
+ * @param {Array} opts.exclude - File or folder to exclude
+ * @param {Array} opts.include - File or folder to include
+ *
+ * @returns {Array} - All folders found in the path
+ */
+const getFolders = (fromPath, opts) => {
+  return getFolderContent(fromPath, { ...opts, type: 'folder' })
+}
+
+/**
+ * Gets all folders in a directory path synchronously
+ * @function
+ * @param {string} fromPath - Path to find the folders in
+ * @param {Object} [opts={}] - Options for filtering the found content
+ * @param {boolean} opts.full - Should return the full path
+ * @param {string} opts.type - Type of content to return (folder || file)
+ * @param {Array} opts.exclude - File or folder to exclude
+ * @param {Array} opts.include - File or folder to include
+ *
+ * @returns {Array} - All folders found in the path
+ */
+const getFoldersSync = (fromPath, opts = {}) => {
+  return getFolderContentSync(fromPath, { ...opts, type: 'folder' })
+}
+
+/**
+ * Gets all files in a directory path synchronously
+ * @function
+ * @param {string} fromPath - Path to find the files in
+ * @param {Object} [opts={}] - Options for filtering the found content
+ * @param {boolean} opts.full - Should return the full path
+ * @param {string} opts.type - Type of content to return (folder || file)
+ * @param {Array} opts.exclude - File or folder to exclude
+ * @param {Array} opts.include - File or folder to include
+ *
+ * @returns {Array} - All files found in the path
+ */
+const getFilesSync = (fromPath, opts) => {
+  return getFolderContentSync(fromPath, { ...opts, type: 'file' })
+}
+
+/**
+ * Checks if a file path exists on the local HHD
+ * @function
+ * @param {string} checkPath - Path to check if exists
+ *
+ * @returns {Promise|boolean} - True if the path exists, false if not
+ */
+const pathExists = checkPath => {
+  return limboify(fs.access, checkPath, fs.constants.F_OK)
+}
+
+/**
+ * Checks if a file path exists on the local HHD
+ * @function
+ * @param {string} checkPath - Path to check if exists
+ *
+ * @returns {Promise|boolean} - True if the path exists, false if not
+ */
+const pathExistsSync = checkPath => fs.existsSync(checkPath)
+
+/**
+ * Reads a file from local HHD, and returns the contents
+ * @function
+ * @param {string} filePath - Path of the file to read
+ * @param {string} [format=utf8] - Format of the file
+ *
+ * @returns {Promise|string} - Content of the file
+ */
+const readFile = (filePath, format = 'utf8') => {
+  return limboify(fs.readFile, filePath, format)
+}
+
+/**
+ * Reads a file from local HHD, and returns the contents synchronously
+ * @function
+ * @param {string} filePath - Path of the file to read
+ * @param {string} [format=utf8] - Format of the file
+ *
+ * @returns {Promise|string} - Content of the file
+ */
+const readFileSync = (filePath, format = 'utf8') => {
+  return fs.readFileSync(filePath, (format = 'utf8'))
+}
+
+/**
+ * Copies from one file path to another
+ * @function
+ * @param {string} from - Path to copy from
+ * @param {string} to - Path to copy to
+ * @param {string} [format=utf8] - Format of the file
+ *
+ * @returns {Object} - Contains the readStream and writeStream
+ */
+const copyStream = (from, to, cb, format = 'utf8') => {
+  const writeStream = fs.createWriteStream(to)
+  const readStream = fs.createReadStream(from, { encoding: format })
+  writeStream.on('finish', () => checkCall(cb))
+
+  readStream.pipe(writeStream)
+
+  return { readStream, writeStream }
+}
+
+/**
+ * Copies from one file path to another
+ * @function
+ * @param {string} from - Path to copy from
+ * @param {string} to - Path to copy to
+ * @param {string} [mode=1] - Copy mode - Should overwrite the file
+ *
+ * @returns {Promise} - Resolves after file has been copied
+ */
+const copyFile = (to, from, mode) => {
+  return limboify(fs.copyFile, to, from, mode)
+}
+
+/**
+ * Copies from one file path to another synchronously
+ * @function
+ * @param {string} from - Path to copy from
+ * @param {string} to - Path to copy to
+ * @param {string} [mode=1] - Copy mode - Should overwrite the file
+ *
+ * @returns {void}
+ */
+const copyFileSync = (from, to, mode) => fs.copyFileSync(from, to, mode)
+
+/**
+ * Removes a file from the local files system
+ * @function
+ * @param {string} file - Path to the file to be removed
+ *
+ * @returns {void}
+ */
+const removeFile = file => limboify(fs.unlink, file)
+
+/**
+ * Removes a file from the local files system synchronously
+ * @function
+ * @param {string} file - Path to the file to be removed
+ *
+ * @returns {void}
+ */
+const removeFileSync = file => fs.unlinkSync(file, callbackFunction)
+
+/**
+ * Wraps require in a try catch so app doesn't throw when require is called inline
+ * @param {string} folder - The path to the file to require
+ * @param {string} file - The file to require
+ * @param {boolean} logError - If the require fails, should the app throw
+ *
+ * @returns {Object} - Content of the required file
+ */
+const requireFile = (folder = '', file = '', logError) => {
+  const location = path.join(folder, file)
+
+  try {
+    // Build the path to the file
+    // load the data
+    const data = require(location)
+
+    return { data, location }
+  }
+  catch (err) {
+    logError &amp;&amp;
+      console.error(`requireFile error for path "${location}"`, err.stack)
+
+    return {}
+  }
+}
+
+/**
+ * Ensures a directory exists
+ * @param {string} dirPath - path to ensure
+ *
+ * @return {string} - directory path that was ensured
+ */
+const ensureDirSync = (dirPath = '', logError) => {
+  try {
+    // make the directory if it doesn't exist
+    !fs.existsSync(dirPath) &amp;&amp; fs.mkdirSync(dirPath)
+
+    return dirPath
+  }
+  catch (err) {
+    logError &amp;&amp;
+      console.error(`ensureDirSync error for path "${dirPath}"`, err.stack)
+    return false
+  }
+}
+
+/**
+ * Copy a file or a directory
+ * @param {string} from - file or directory path
+ * @param {string} to - file or directory path (if 'from' is a file, 'to' cannot be a directory)
+ * @param {boolean=} logError - If the command fails, should the app throw?
+ *
+ * @returns {boolean} - whether the cmd is successful or not
+ */
+const copySync = (from, to, logError = false) => {
+  try {
+    fs.copySync(from, to)
+    return true
+  }
+  catch (err) {
+    logError &amp;&amp;
+      console.error(`copySync error for path "${from} to ${to}"`, err.stack)
+    return false
+  }
+}
+
+/**
+ * Deletes directory contents if the directory is not empty. If the directory does not exist, it is created
+ * @param {string} path
+ * @param {boolean=} logError
+ *
+ * @returns {boolean} - whether the cmd is successful or not
+ */
+const emptyDirSync = (path, logError = false) => {
+  try {
+    fs.emptyDirSync(path)
+    return true
+  }
+  catch (err) {
+    logError &amp;&amp;
+      console.error(`emptyDirSync error for path "${path}"`, err.stack)
+    return false
+  }
+}
+
+module.exports = {
+  copyFile,
+  copySync,
+  copyFileSync,
+  copyStream,
+  emptyDirSync,
+  ensureDirSync,
+  getFiles,
+  getFilesSync,
+  getFolders,
+  getFoldersSync,
+  getFolderContent,
+  getFolderContentSync,
+  mkDir,
+  movePath,
+  pathExists,
+  pathExistsSync,
+  readFile,
+  readFileSync,
+  removeFile,
+  removeFileSync,
+  requireFile,
+  stat,
+  writeFile,
+  writeFileSync,
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Mar 29 2023 10:03:12 GMT-0700 (Mountain Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+    <link type="text/css" rel="stylesheet" href="styles/docs.css">
+    
+    <script src="scripts/docs.js"></script>
+    
+</body>
+</html>

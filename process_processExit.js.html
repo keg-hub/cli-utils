@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>process/processExit.js - CLI Utils</title>
+    
+    <meta name="description" content="Utility methods for building Node.js CLI's" />
+    
+        <meta name="keywords" content="utils, cli, task, tasks" />
+        <meta name="keyword" content="utils, cli, task, tasks" />
+    
+    
+    
+    <meta property="og:title" content="CLIJS Utils"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:site_name" content="cli-utils"/>
+    <meta property="og:url" content="https://github.com/keg-hub/keg-cli/tree/develop/repos/cli-utils"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/keg-hub/keg-cli/tree/develop/repos/cli-utils" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Tutorials</h3><ul><li><a href="tutorial-Tasks.html">Tasks</a></li></ul><h3>Modules</h3><ul><li><a href="module-CLI.html">CLI</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-CLI.html#~runTask">runTask</a></li><li data-type='method' style='display: none;'><a href="module-CLI.html#~setAppRoot">setAppRoot</a></li><li data-type='method' style='display: none;'><a href="module-CLI.html#~showHelp">showHelp</a></li></ul></li><li></li><li></li><li><a href="module-Commands.html">Commands</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Commands.html#.docker">docker</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.dockerCompose">dockerCompose</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.node">node</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.npm">npm</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.npx">npx</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#.yarn">yarn</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~containerExec">containerExec</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~dockerCmd">dockerCmd</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~dockerExec">dockerExec</a></li><li data-type='method' style='display: none;'><a href="module-Commands.html#~inDocker">inDocker</a></li></ul></li><li></li><li><a href="module-Constants.html">Constants</a></li><li><a href="module-Error.html">Error</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Error.html#~throwErr">throwErr</a></li><li data-type='method' style='display: none;'><a href="module-Error.html#~throwExitError">throwExitError</a></li><li data-type='method' style='display: none;'><a href="module-Error.html#~throwNoTask">throwNoTask</a></li></ul></li><li></li><li><a href="module-FS.html">FS</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-FS.html#~buildFoundArray">buildFoundArray</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyFile">copyFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyFileSync">copyFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copyStream">copyStream</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~copySync">copySync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~emptyDirSync">emptyDirSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~ensureDirSync">ensureDirSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFiles">getFiles</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFilesSync">getFilesSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolderContent">getFolderContent</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolderContentSync">getFolderContentSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFolders">getFolders</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getFoldersSync">getFoldersSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~getPackageRoot">getPackageRoot</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~limboify">limboify</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~mkDir">mkDir</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~movePath">movePath</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~pathExists">pathExists</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~pathExistsSync">pathExistsSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readDir">readDir</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readFile">readFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~readFileSync">readFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~removeFile">removeFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~removeFileSync">removeFileSync</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~requireFile">requireFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~stat">stat</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~writeFile">writeFile</a></li><li data-type='method' style='display: none;'><a href="module-FS.html#~writeFileSync">writeFileSync</a></li></ul></li><li></li><li><a href="module-Global-Config.html">Global-Config</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~addGlobalOptions">addGlobalOptions</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getDefaultEnv">getDefaultEnv</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getEditorCmd">getEditorCmd</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getGlobalOptions">getGlobalOptions</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getKegGlobalConfig">getKegGlobalConfig</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getKegSetting">getKegSetting</a></li><li data-type='method' style='display: none;'><a href="module-Global-Config.html#~getPathFromConfig">getPathFromConfig</a></li></ul></li><li></li><li></li><li><a href="module-Helpers.html">Helpers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addFlag">addFlag</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addParam">addParam</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addToProcess">addToProcess</a></li><li data-type='method' style='display: none;'><a href="module-Helpers.html#~addValues">addValues</a></li></ul></li><li><a href="module-Network.html">Network</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Network.html#~getAddresses">getAddresses</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getHostIP">getHostIP</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPrivateIPs">getPrivateIPs</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPublicIP">getPublicIP</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~getPublicIPsForUrl">getPublicIPsForUrl</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~ipIsInRange">ipIsInRange</a></li><li data-type='method' style='display: none;'><a href="module-Network.html#~isPrivateIP">isPrivateIP</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li><a href="module-Process.html">Process</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Process.html#~addToProcess">addToProcess</a></li><li data-type='method' style='display: none;'><a href="module-Process.html#~getEventExitCode">getEventExitCode</a></li><li data-type='method' style='display: none;'><a href="module-Process.html#~onProcessExit">onProcessExit</a></li></ul></li><li></li><li><a href="module-Tap.html">Tap</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapConfig">getTapConfig</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapPackage">getTapPackage</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapPath">getTapPath</a></li><li data-type='method' style='display: none;'><a href="module-Tap.html#~getTapRoot">getTapRoot</a></li></ul></li><li></li><li></li><li><a href="module-Task.html">Task</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-Task.html#~buildTaskData">buildTaskData</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~executeTask">executeTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~findTask">findTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~getTaskDefinitions">getTaskDefinitions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~hasHelpArg">hasHelpArg</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~parseTaskArgs">parseTaskArgs</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~registerTasks">registerTasks</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~runInternalTask">runInternalTask</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~setSharedOptions">setSharedOptions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~setTaskFolder">setTaskFolder</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~sharedOptions">sharedOptions</a></li><li data-type='method' style='display: none;'><a href="module-Task.html#~validateTask">validateTask</a></li></ul></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><h3>Classes</h3><ul><li><a href="Log.html">Log</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Log.html#clear">clear</a></li><li data-type='method' style='display: none;'><a href="Log.html#color">color</a></li><li data-type='method' style='display: none;'><a href="Log.html#empty">empty</a></li><li data-type='method' style='display: none;'><a href="Log.html#header">header</a></li><li data-type='method' style='display: none;'><a href="Log.html#highlight">highlight</a></li><li data-type='method' style='display: none;'><a href="Log.html#label">label</a></li><li data-type='method' style='display: none;'><a href="Log.html#pair">pair</a></li><li data-type='method' style='display: none;'><a href="Log.html#print">print</a></li><li data-type='method' style='display: none;'><a href="Log.html#removeTag">removeTag</a></li><li data-type='method' style='display: none;'><a href="Log.html#setColors">setColors</a></li><li data-type='method' style='display: none;'><a href="Log.html#setTag">setTag</a></li><li data-type='method' style='display: none;'><a href="Log.html#spacedMsg">spacedMsg</a></li><li data-type='method' style='display: none;'><a href="Log.html#spaceMsg">spaceMsg</a></li><li data-type='method' style='display: none;'><a href="Log.html#stderr">stderr</a></li><li data-type='method' style='display: none;'><a href="Log.html#stdout">stdout</a></li><li data-type='method' style='display: none;'><a href="Log.html#subHeader">subHeader</a></li><li data-type='method' style='display: none;'><a href="Log.html#table">table</a></li><li data-type='method' style='display: none;'><a href="Log.html#toggleTag">toggleTag</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">process/processExit.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module Process */
+
+const { Logger } = require('../logger/logger')
+const { exists, isNum, noOpObj } = require('@keg-hub/jsutils')
+
+let eventExitStatus = noOpObj
+
+/**
+ * Returns the status of eventExitStatus
+ * @function
+ * @public
+ *
+ * @returns {number} eventExitStatus - The error code returned from a child process
+ */
+const getEventExitCode = () => {
+  return eventExitStatus
+}
+
+/**
+ * Error handler called when npm test command fails
+ * @function
+ * @public
+ * @exits
+ * @param {number} exitCode - The error code returned from the npm test command
+ * @param {string} tag - Tag for the logged message
+ * @param {string} message - Error message to display
+ *
+ */
+const onProcessExit = (tag, exitCode, message) => {
+  tag &amp;&amp;
+    message &amp;&amp;
+    Logger.error(`\n[ ${tag} ] - ${message}\n`)
+
+  process.exit(exitCode)
+}
+
+/**
+ * Helper to automatically add exit listeners to the current process
+ * Allows exiting the process in the middle of the task being run
+ * @function
+ * @private
+ *
+ * @returns {void}
+ */
+ const addExitEvents = () => {
+  Array.from([
+    'exit',
+    'SIGINT',
+    'SIGUSR1',
+    'SIGUSR2',
+    'uncaughtException',
+    'SIGTERM'
+  ])
+    .map(event => process.on(event, (type, exitCode) => {
+      !exists(eventExitStatus.code) &amp;&amp;
+        (eventExitStatus = {
+          code: isNum(type) ? type : exitCode,
+          message: `Process exit from event: ${event}`,
+        })
+    }))
+ }
+ 
+ 
+ module.exports = {
+  addExitEvents,
+  onProcessExit,
+  getEventExitCode,
+ }</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Mar 29 2023 10:03:12 GMT-0700 (Mountain Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+    <link type="text/css" rel="stylesheet" href="styles/docs.css">
+    
+    <script src="scripts/docs.js"></script>
+    
+</body>
+</html>
